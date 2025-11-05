@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>Mernstack</title>
+    <title>Passworder</title>
 </head>
 <body>
-    <p>Hello! My name is velumuthu. I am learning web development!</p>
-    <h3>Hobbies:</h3>
-    <ul>
-        <li>Playing hockey</li>
-        <li>Watching movie</li>
-        <li>Listening music</li>
-    </ul>
-    <h3>Building the projects</h3>
-    <ol>
-        <li>Requirements</li>
-        <li>Design</li>
-        <li>Approvel</li>
-        <li>Develeop</li>
-        <li>Testing</li>
-        <li>Deploy</li>
-    </ol>
-    <h3>Skills</h3>
-    <dl>
-        <dt>Digital marketing</dt>
-        <dd>90%</dd>
-    </dl>
+    <h1>Welcome to Passworder</h1>
+    <p>Your secure password management solution.</p>
+
+    <label>Enter the length of your password:</label>
+    <input type="number" id="length" value="8" min="4" max="20">
+    <button onclick="generatePassword()">Generate</button>
+
+    <p><strong>Genearated password:</strong> <span style="color:green;" id="result"></span></p>
+
+    <script>
+        function generatePassword(){
+            const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+
+            const length = document.getElementById("length").value;
+
+            let password = "";
+
+            for(let i = 0; i < length; i++){
+                const randomIndex = Math.floor(Math.random() * chars.length); //61
+                password += chars[randomIndex];
+            }
+            document.getElementById("result").innerText = password;
+        }
+    </script>
 </body>
 </html>
